@@ -19,6 +19,7 @@ import webapp2
 index_html="""
 <!DOCTYPE html><html class=''>
 <head>
+<title>Ryan Rockers</title>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <style class="cp-pen-styles">
 #top {
