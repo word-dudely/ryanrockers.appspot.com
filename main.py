@@ -97,7 +97,7 @@ index_html="""
         <a href="/babyDaddy"><img src="/images/babyDaddy_screenshot.jpg" alt="Baby Daddy"></a>
           <div class="caption">
             <h3>Baby Daddy</h3>
-            <p>I became a dad not that long ago, and I'm worried about zombies. I feel better knowing I have the high score in Baby Daddy. Shoot down zombie fish with your trusty bottles. Windows download. Written in python/pygame. <a href="https://github.com/word-dudely/Baby-Daddy">Github link</a></p>
+            <p>I became a dad not that long ago, and I'm worried about zombies. I feel better knowing I have the high score in Baby Daddy. Shoot down zombie fish with your trusty bottles. Windows download. Action game written in python/pygame. <a href="https://github.com/word-dudely/Baby-Daddy">Github link</a></p>
           </div>
       </div>
     </div>
@@ -106,7 +106,7 @@ index_html="""
         <a href="/goAround"><img src="/images/goAround_screenshot.png" alt="Go Around"></a>
           <div class="caption">
             <h3>Go Around</h3>
-            <p>My take on a classic hero myth. The monkey wants the banana, and will go to great lengths to get it. He must first challenge a monster in his den, tasting the blood of victory, followed by two more tests to his willpower and determination. When he finally reaches his goal, he has been forever changed by the journey.</p>
+            <p>My take on a classic hero myth. The monkey wants the banana, and will go to great lengths to get it. He must first challenge a monster in his den, tasting the blood of victory, followed by two more tests to his willpower and determination. When he finally reaches his goal, he has been forever changed by the journey. Flash animation.</p>
           </div>
       </div>
     </div>
@@ -147,10 +147,11 @@ class GoAroundAnim (webapp2.RequestHandler):
     def get(self):
 #        self.response.write(index_html)
         self.redirect("https://drive.google.com/file/d/0B-swctkKyxQMdGRua0pMQlpiNk0/preview")
-		
+	
 class SmartDogAnim (webapp2.RequestHandler):
     def get(self):
-        self.response.write(index_html)
+#        self.response.write(index_html)
+        self.redirect("https://drive.google.com/file/d/0B-swctkKyxQMTnF5cXBoUHNVV28/preview")
 
 #Games
 
@@ -158,17 +159,11 @@ class Match3DogGame (webapp2.RequestHandler):
     def get(self):
 #        self.response.write(index_html)
         self.redirect("games/match3dog/Match3.swf")
-
-class TextMeOkGame (webapp2.RequestHandler):
-    def get(self):
-#        self.response.write(index_html)
-        self.redirect("games/text_me_ok/textMeOk.swf")
         
 class BabyDaddyGame (webapp2.RequestHandler):
     def get(self):
 #        self.response.write(index_html)
         self.redirect("https://drive.google.com/uc?export=download&id=0B-swctkKyxQMQXltN2hFb0JXMnc")
-		
 
 app = webapp2.WSGIApplication([
 #Main Pages
@@ -181,7 +176,7 @@ app = webapp2.WSGIApplication([
     ('/goAround', GoAroundAnim),
     ('/coffee', MainHandler),
     ('/dogVisitsUtah', MainHandler),
-	('/smartDog', SmartDogAnim),
+    ('/smartDog', SmartDogAnim),
     ('/spacePants', MainHandler),
     ('/soapOperaDash', MainHandler),
     ('/pirateSolitaire', MainHandler),
@@ -194,8 +189,8 @@ app = webapp2.WSGIApplication([
 #Games
     ('/match3Dog', Match3DogGame),
     ('/flyingFish', MainHandler),
-    ('/textMeOk', TextMeOkGame),
-	('/mysteryCatFiles', MainHandler),
+    ('/textMeOk', MainHandler),
+    ('/mysteryCatFiles', MainHandler),
     ('/babyDaddy', BabyDaddyGame),
 #Bonus Pages    
     ('/bio', MainHandler),
