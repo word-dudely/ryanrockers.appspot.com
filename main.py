@@ -21,44 +21,7 @@ index_html="""
 <head>
 <title>Ryan Rockers</title>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<style class="cp-pen-styles">
-#top {
-  padding-top: 50px;
-  min-height: 100vh;
-  background-color: red;
-}
-#logo {
-  padding-top: 15vh;
-  padding-bottom: 15vh;
-}
-#portfolio {
-  padding-top: 5vh;
-  min-height: 100vh;
-  background-color: blue;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 5vh;
-}
-
-#portfolioHeader {
- color: white;
-}
-
-#contactHeader {
- color: black;
-}
-
-#contact {
-  padding-top: 5vh;
-  min-height: 100vh;
-  background-color: grey;  
-}
-
-#button-row {
-  min-height: 30vh;
-}
-
-</style>
+<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
