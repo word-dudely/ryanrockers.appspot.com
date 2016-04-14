@@ -27,7 +27,7 @@ index_html="""
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="http://ryanrockers.appspot.com" target="_self">Ryan Rockers</a>
+      <a class="navbar-brand" href="http://ryanrockers.appspot.com/smartDog" target="_self">Ryan Rockers</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#top">Home</a></li>
@@ -74,6 +74,15 @@ index_html="""
           </div>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="/randomRedditbot"><img src="/images/randomRedditbot_screenshot.png" alt="Random Redditbot"></a>
+          <div class="caption">
+            <h3>Random Redditbot</h3>
+            <p>It's like you're in a room full of people talking to themselves. Kind of soothing really. An important web application.</p>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -98,6 +107,60 @@ GitHub</a>
 </div>
 
 </body></html>
+"""
+
+randomRedditbot_html="""
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+
+
+<title>Random redditbot</title>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" />
+
+</head>
+
+<body>
+
+<div id="results">here it comes...</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+var displayText = "<p>";
+var randomSortList = ['hot', 'rising', 'controversial', 'top', 'new'];
+var randomSubredditList = ['all', 'breakingmom', 'dadjokes', 'news', 'space', 'economy', 'business', 'onthescene', 'science', 'Advice', 'confessions', 'riddles', 'UFOs', 'myfriendwantstoknow', 'howto', 'dogs', 'conspiracy', 'oldpeoplefacebook', 'tifu', 'artificial', 'Seattle', 'tech', 'technews', 'democrats', 'republicans', 'inthenews', 'finance', 'gossip', 'singularity', 'AskTechnology', 'AMA', 'paranormal', 'mildlyinteresting', 'worldnews', 'nottheonion', 'shittyaskscience', 'explainlikeimfive', 'philosophy', 'askphilosophy', 'LearnUselessTalents', 'TechNewsToday', 'AmericanPolitics', 'Economics', 'mildlyinfuriating', 'creepyPMs', 'Whatisthis', 'Libertarian', 'MURICA', 'FutureWhatIf', 'wikipedia', 'sanders4president', 'the_donald', 'Hillary_Clinton', 'TedCruzForPresident', 'KasichForPresident', 'cringe', 'cringepics', 'niceguys'];
+var usedList = [['[deleted]',0], [undefined,0], ['[removed]',0]];
+var intervalID = window.setInterval(randomReddit, 4000);
+
+function randomReddit() {
+$.getJSON('https://www.reddit.com/r/' + randomSubredditList[Math.floor(Math.random() * randomSubredditList.length)] + '/' + randomSortList[Math.floor(Math.random() * randomSortList.length)] + '/.json?limit=1&t=hour', function(data) {
+var link='https://www.reddit.com/r/all/comments/' + (data.data.children[0].data.id);
+$.getJSON('https://www.reddit.com/r/all/comments/' + (data.data.children[0].data.id) + '.json?limit=1', function(data) {
+var comment=data[1].data.children[0].data.body;
+for (var i=0;i<usedList.length;i++) {
+if (usedList[i].indexOf(comment) != -1) {
+return;
+}
+}
+usedList.push([comment,link]);
+displayText="<p>";
+for (var i=usedList.length-1;i>2;i--) {
+displayText += '<a href="'+ usedList[i][1] + '" target="_blank">' + usedList[i][0] + "</a><p>";
+}
+$("#results").html(displayText);
+//window.scrollTo(0,document.body.scrollHeight)
+});
+});
+};
+randomReddit();
+});
+</script>
+
+</body>
+</html>
 """
 
 #Main pages
@@ -128,6 +191,12 @@ class BabyDaddyGame (webapp2.RequestHandler):
     def get(self):
 #        self.response.write(index_html)
         self.redirect("https://drive.google.com/uc?export=download&id=0B-swctkKyxQMQXltN2hFb0JXMnc")
+        
+#WebApps
+
+class RandomRedditbotApp (webapp2.RequestHandler):
+    def get(self):
+        self.response.write(randomRedditbot_html)
 
 app = webapp2.WSGIApplication([
 #Main Pages
@@ -156,6 +225,8 @@ app = webapp2.WSGIApplication([
     ('/textMeOk', MainHandler),
     ('/mysteryCatFiles', MainHandler),
     ('/babyDaddy', BabyDaddyGame),
+#WebApps
+    ('/randomRedditbot', RandomRedditbotApp),
 #Bonus Pages    
     ('/bio', MainHandler),
 ], debug=True)
