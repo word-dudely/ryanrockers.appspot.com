@@ -121,7 +121,7 @@ randomRedditbot_html="""
 <meta charset="UTF-8">
 
 
-<title>Random redditbot</title>
+<title>Random Redditbot</title>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 <link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" />
 
