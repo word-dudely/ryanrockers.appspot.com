@@ -1,6 +1,8 @@
 #top {
-  padding-top: 50px;
+  padding-top: 20%;
   min-height: 100vh;
+  padding-left: 30%;
+  padding-right: 30%;
   background-color: red;
 }
 #logo {
