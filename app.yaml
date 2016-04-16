@@ -21,10 +21,6 @@ handlers:
   static_files: google07e132c4c2bd7028.html
   upload: google07e132c4c2bd7028\.html
 
-- url: /codepen\.html  
-  static_files: codepen.html
-  upload: codepen\.html
-
 - url: /BingSiteAuth\.xml  
   static_files: BingSiteAuth.xml
   upload: BingSiteAuth\.xml
@@ -55,3 +51,6 @@ handlers:
 libraries:
 - name: webapp2
   version: latest
+  
+- name: PIL
+  version: "1.1.7"

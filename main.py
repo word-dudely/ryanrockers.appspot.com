@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 import webapp2
+import StringIO
+from google.appengine.api import images
+from PIL import Image, ImageDraw, ImageFont
 
 index_html="""
 <!DOCTYPE html><html class=''>
@@ -202,6 +205,31 @@ class BabyDaddyGame (webapp2.RequestHandler):
 class RandomRedditbotApp (webapp2.RequestHandler):
     def get(self):
         self.response.write(randomRedditbot_html)
+        
+class imageTest (webapp2.RequestHandler):
+    def get(self):
+        #img=images.Image("images/babyDaddy_screenshot.jpg")
+        #img.resize(width=1024, height=768)
+        #thumbnail = img.execute_transforms(output_encoding=images.JPEG)
+
+        #self.response.headers['Content-Type'] = 'image/jpeg'
+        #self.response.out.write(thumbnail)
+        #text_img = Image.new('RGBA', (800,600), (0, 0, 0, 1000))
+        #draw = ImageDraw.Draw(text_img)
+        #draw.text((0, 0), 'god damn', font=ImageFont.load_default())
+
+        #output = StringIO.StringIO()
+        #text_img.save(output, format="png")
+        #text_layer = output.getvalue()
+        #output.close()
+
+        #self.response.headers['Content-Type'] = 'image/png'
+        #self.response.write(text_layer)
+        
+        #im = Image.open("images/babyDaddy_screenshot.jpg")
+        #im.show()
+        
+        self.redirect("images/babyDaddy_screenshot.jpg")
 
 app = webapp2.WSGIApplication([
 #Main Pages
@@ -234,4 +262,7 @@ app = webapp2.WSGIApplication([
     ('/randomRedditbot', RandomRedditbotApp),
 #Bonus Pages    
     ('/bio', MainHandler),
+    
+ #ImageTest
+    ('/imageTest', imageTest),
 ], debug=True)
