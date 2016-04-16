@@ -7,3 +7,8 @@ color:black;
 a:visited {
 color:red;
 }
+
+body{
+font-family: 'Anton', sans-serif;
+font-size: x-large;
+}
