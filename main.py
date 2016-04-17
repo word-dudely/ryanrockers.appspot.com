@@ -30,7 +30,7 @@ index_html="""
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="http://ryanrockers.appspot.com/smartDog" target="_self">Ryan Rockers</a>
+      <a class="navbar-brand" href="http://ryanrockers.appspot.com/smartDog" target="_blank">Ryan Rockers</a>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#top">Home</a></li>
@@ -57,7 +57,7 @@ index_html="""
   <div class="row center-block">
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="/match3Dog"><img src="/images/match3dog_screenshot.jpg" alt="Match 3 Dog"></a>
+        <a href="/match3Dog" target="_blank"><img src="/images/match3dog_screenshot.jpg" alt="Match 3 Dog"></a>
           <div class="caption">
             <h3>Match 3 Dog</h3>
             <p>I asked my dog about this game recently. He said he liked it, but it gets "ruff". He's a good boy. It's a fun Match-3 game in Flash. Match 4 or more and the dog reacts. Fun for the whole gang. No cats.</p>
@@ -66,7 +66,7 @@ index_html="""
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="/babyDaddy"><img src="/images/babyDaddy_screenshot.jpg" alt="Baby Daddy"></a>
+        <a href="/babyDaddy" target="_blank"><img src="/images/babyDaddy_screenshot.jpg" alt="Baby Daddy"></a>
           <div class="caption">
             <h3>Baby Daddy</h3>
             <p>I became a dad not that long ago, and I'm worried about zombies. I feel better knowing I have the high score in Baby Daddy. Shoot down zombie fish with your trusty bottles. Windows download. Action game written in python/pygame. <a href="https://github.com/word-dudely/Baby-Daddy">Github link</a></p>
@@ -75,7 +75,7 @@ index_html="""
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="/goAround"><img src="/images/goAround_screenshot.png" alt="Go Around"></a>
+        <a href="/goAround" target="_blank"><img src="/images/goAround_screenshot.png" alt="Go Around"></a>
           <div class="caption">
             <h3>Go Around</h3>
             <p>My take on a classic hero myth. The monkey wants the banana, and will go to great lengths to get it. He must first challenge a monster in his den, tasting the blood of victory, followed by two more tests to his willpower and determination. When he finally reaches his goal, he has been forever changed by the journey. Flash animation.</p>
@@ -84,7 +84,7 @@ index_html="""
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="/randomRedditbot"><img src="/images/randomRedditbot_screenshot.png" alt="Random Redditbot"></a>
+        <a href="/randomRedditbot" target="_blank"><img src="/images/randomRedditbot_screenshot.png" alt="Random Redditbot"></a>
           <div class="caption">
             <h3>Random Redditbot</h3>
             <p>It's like you're in a room full of people talking to themselves. Kind of soothing really. An important web application.</p>
