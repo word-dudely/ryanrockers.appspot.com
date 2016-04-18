@@ -41,13 +41,13 @@ index_html="""
 </nav>
   
 <div id="top">
-  <div id="logo">
-    <!--img class="img-responsive col-xs-4 col-xs-offset-4" src="http://ryanrockers.appspot.com/images/manAndPlant.svg"-->
-    <div id="button-row" class="btn-group btn-group-justified" role="group">
+  <div>
+    <img class="img-responsive center-block" src="images/georgeIcon.svg" id="logo">
+    <!--div id="button-row" class="btn-group btn-group-justified" role="group">
         <div class="btn btn-lg" role="button">
-          <a href="#"><img src="http://ryanrockers.appspot.com/images/manAndPlant.svg" class="img-responsive"></a>
+          <a href="#"><img src="images/georgeIcon.svg" class="img-responsive"></a>
         </div>
-    </div>
+    </div-->
   </div>
 </div>
     
