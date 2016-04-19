@@ -100,17 +100,17 @@ index_html="""
   <br><br><br><br>
   <div id="button-row" class="btn-group btn-group-justified" role="group">
     <div class="btn btn-default btn-lg" role="button">
-      <a href="mailto:ryanrockers@gmail.com"><img src="images/email.svg" class="img-responsive"><p><br>Email</a>
+      <a href="mailto:ryanrockers@gmail.com"><img src="images/email.svg" class="img-responsive" width="100%"><p><br>Email</a>
     </div>
     <div class="btn btn-default btn-lg" role="button">
-      <a href="https://github.com/word-dudely/" target="_blank"><img src="images/github.svg" class="img-responsive"><p><br>
+      <a href="https://github.com/word-dudely/" target="_blank"><img src="images/github.svg" class="img-responsive" width="100%"><p><br>
 GitHub</a>
     </div>
     <div class="btn btn-default btn-lg" role="button">
-      <a href="http://www.freecodecamp.com/word-dudely" target="_blank"><img src="images/free-code-camp-logo.svg" class="img-responsive"><p><br>freeCodeCamp</a>
+      <a href="http://www.freecodecamp.com/word-dudely" target="_blank"><img src="images/free-code-camp-logo.svg" class="img-responsive" width="100%"><p><br>freeCodeCamp</a>
     </div>
     <div class="btn btn-default btn-lg" role="button">
-      <a href="http://codepen.io/word-dudely" target="_blank"><img src="images/codepen.svg" class="img-responsive"><p><br>CodePen</a>
+      <a href="http://codepen.io/word-dudely" target="_blank"><img src="images/codepen.svg" class="img-responsive" width="100%"><p><br>CodePen</a>
     </div>
   </div>
 </div>

@@ -5,6 +5,8 @@
 }
 #logo{
   max-height: 100vh;
+  height:100%;
+  width:100%;
 }
 #portfolio {
   padding-top: 5vh;
