@@ -25,6 +25,7 @@ index_html="""
 <title>Ryan Rockers</title>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -96,7 +97,7 @@ index_html="""
 
 <div id="contact">
     <h1 id="contactHeader" class="text-center">Contact</h1>
-  <br><br><br><br><br><br>
+  <br><br><br><br>
   <div id="button-row" class="btn-group btn-group-justified" role="group">
     <div class="btn btn-default btn-lg" role="button">
       <a href="mailto:ryanrockers@gmail.com"><img src="http://cdn.onlinewebfonts.com/svg/img_15943.svg" class="img-responsive"><p><br>Email</a>

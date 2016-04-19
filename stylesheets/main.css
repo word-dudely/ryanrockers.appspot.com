@@ -17,10 +17,16 @@
 
 #portfolioHeader {
  color: white;
+font-family: 'Courgette', cursive;
+font-size: 4em;
+font-weight: bold;
 }
 
 #contactHeader {
  color: black;
+font-family: 'Courgette', cursive;
+font-size: 4em;
+font-weight: bold;
 }
 
 #contact {
