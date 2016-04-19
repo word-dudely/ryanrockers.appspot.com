@@ -1,0 +1,14 @@
+html {
+  height: 100%;
+  overflow: hidden; /* Hides scrollbar in IE */
+}
+ 
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ 
+#content {
+  height: 100%;
+}

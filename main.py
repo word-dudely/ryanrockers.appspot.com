@@ -15,9 +15,9 @@
 # limitations under the License.
 #
 import webapp2
-import StringIO
-from google.appengine.api import images
-from PIL import Image, ImageDraw, ImageFont
+#import StringIO
+#from google.appengine.api import images
+#from PIL import Image, ImageDraw, ImageFont
 
 index_html="""
 <!DOCTYPE html><html class=''>
@@ -118,6 +118,53 @@ GitHub</a>
 </body></html>
 """
 
+match3Dog_html="""
+<!DOCTYPE html><html class=''>
+<head>
+<title>Match3 Dog</title>
+<link type="text/css" rel="stylesheet" href="/stylesheets/match3Dog.css" />
+</head>
+<body>
+<div id="content" align="center">
+		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="100%" height="100%" id="Match3" align="middle" allowfullscreen="true">
+			<param name="movie" value="games/match3dog/Match3.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#FFFFFF" />
+			<param name="play" value="true" />
+			<param name="loop" value="true" />
+			<param name="wmode" value="window" />
+			<param name="scale" value="default" />
+			<param name="menu" value="true" />
+			<param name="devicefont" value="false" />
+			<param name="salign" value="" />
+			<param name="allowScriptAccess" value="sameDomain" />
+			<param name="allowFullScreen" value="true" /> 
+			<!--[if !IE]>-->
+			<object type="application/x-shockwave-flash" data="games/match3dog/Match3.swf" width="100%" height="100%">
+				<param name="movie" value="games/match3dog/Match3.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#FFFFFF" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="default" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
+				<param name="allowFullScreen" value="true" /> 
+			<!--<![endif]-->
+				<a href="http://www.adobe.com/go/getflash">
+					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+				</a>
+			<!--[if !IE]>-->
+			</object>
+			<!--<![endif]-->
+		</object>
+	</div>
+</body></html>
+"""
+
 randomRedditbot_html="""
 <!DOCTYPE html>
 <html >
@@ -193,8 +240,8 @@ class SmartDogAnim (webapp2.RequestHandler):
 
 class Match3DogGame (webapp2.RequestHandler):
     def get(self):
-#        self.response.write(index_html)
-        self.redirect("games/match3dog/Match3.swf")
+        self.response.write(match3Dog_html)
+#        self.redirect("games/match3dog/Match3.swf")
         
 class BabyDaddyGame (webapp2.RequestHandler):
     def get(self):
