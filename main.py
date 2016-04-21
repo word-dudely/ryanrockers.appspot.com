@@ -121,7 +121,7 @@ GitHub</a>
 match3Dog_html="""
 <!DOCTYPE html><html class=''>
 <head>
-<title>Match3 Dog</title>
+<title>Match 3 Dog</title>
 <link type="text/css" rel="stylesheet" href="/stylesheets/match3Dog.css" />
 </head>
 <body>
