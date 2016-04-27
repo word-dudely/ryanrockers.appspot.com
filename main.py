@@ -19,240 +19,40 @@ import webapp2
 #from google.appengine.api import images
 #from PIL import Image, ImageDraw, ImageFont
 
-index_html="""
-<!DOCTYPE html><html class=''>
-<head>
-<title>Ryan Rockers</title>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-<link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="http://ryanrockers.appspot.com/smartDog" target="_blank">Ryan Rockers</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="#top">Home</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-  
-<div id="top">
-  <div>
-    <img class="img-responsive center-block" src="images/georgeIcon.svg" id="logo">
-    <!--div id="button-row" class="btn-group btn-group-justified" role="group">
-        <div class="btn btn-lg" role="button">
-          <a href="#"><img src="images/georgeIcon.svg" class="img-responsive"></a>
-        </div>
-    </div-->
-  </div>
-</div>
-    
-<div id="portfolio">
-  <h1 id="portfolioHeader" class="text-center">Portfolio</h1>
-  <br><br>
-  <div class="row center-block">
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="/match3Dog" target="_blank"><img src="/images/match3dog_screenshot.jpg" alt="Match 3 Dog"></a>
-          <div class="caption">
-            <h3>Match 3 Dog</h3>
-            <p>I asked my dog about this game recently. He said he liked it, but it gets "ruff". He's a good boy. It's a fun Match-3 game in Flash. Match 4 or more and the dog reacts. Fun for the whole gang. No cats.</p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="/babyDaddy" target="_blank"><img src="/images/babyDaddy_screenshot.jpg" alt="Baby Daddy"></a>
-          <div class="caption">
-            <h3>Baby Daddy</h3>
-            <p>I became a dad not that long ago, and I'm worried about zombies. I feel better knowing I have the high score in Baby Daddy. Shoot down zombie fish with your trusty bottles. Windows download. Action game written in python/pygame. <a href="https://github.com/word-dudely/Baby-Daddy">Github link</a></p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="/goAround" target="_blank"><img src="/images/goAround_screenshot.png" alt="Go Around"></a>
-          <div class="caption">
-            <h3>Go Around</h3>
-            <p>My take on a classic hero myth. The monkey wants the banana, and will go to great lengths to get it. He must first challenge a monster in his den, tasting the blood of victory, followed by two more tests to his willpower and determination. When he finally reaches his goal, he has been forever changed by the journey. Flash animation.</p>
-          </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="thumbnail">
-        <a href="/randomRedditbot" target="_blank"><img src="/images/randomRedditbot_screenshot.png" alt="Random Redditbot"></a>
-          <div class="caption">
-            <h3>Random Redditbot</h3>
-            <p>It's like you're in a room full of people talking to themselves. Kind of soothing really. An important web application.</p>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="contact">
-    <h1 id="contactHeader" class="text-center">Contact</h1>
-  <br><br><br><br>
-  <div id="button-row" class="btn-group btn-group-justified" role="group">
-    <div class="btn btn-default btn-lg" role="button">
-      <a href="mailto:ryanrockers@gmail.com"><img src="images/email.svg" class="img-responsive" width="100%"><p><br>Email</a>
-    </div>
-    <div class="btn btn-default btn-lg" role="button">
-      <a href="https://github.com/word-dudely/" target="_blank"><img src="images/github.svg" class="img-responsive" width="100%"><p><br>
-GitHub</a>
-    </div>
-    <div class="btn btn-default btn-lg" role="button">
-      <a href="http://www.freecodecamp.com/word-dudely" target="_blank"><img src="images/free-code-camp-logo.svg" class="img-responsive" width="100%"><p><br>freeCodeCamp</a>
-    </div>
-    <div class="btn btn-default btn-lg" role="button">
-      <a href="http://codepen.io/word-dudely" target="_blank"><img src="images/codepen.svg" class="img-responsive" width="100%"><p><br>CodePen</a>
-    </div>
-  </div>
-</div>
-
-</body></html>
-"""
-
-match3Dog_html="""
-<!DOCTYPE html><html class=''>
-<head>
-<title>Match 3 Dog</title>
-<link type="text/css" rel="stylesheet" href="/stylesheets/match3Dog.css" />
-</head>
-<body>
-<div id="content" align="center">
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="100%" height="100%" id="Match3" align="middle" allowfullscreen="true">
-			<param name="movie" value="games/match3dog/Match3.swf" />
-			<param name="quality" value="high" />
-			<param name="bgcolor" value="#FFFFFF" />
-			<param name="play" value="true" />
-			<param name="loop" value="true" />
-			<param name="wmode" value="window" />
-			<param name="scale" value="default" />
-			<param name="menu" value="true" />
-			<param name="devicefont" value="false" />
-			<param name="salign" value="" />
-			<param name="allowScriptAccess" value="sameDomain" />
-			<param name="allowFullScreen" value="true" /> 
-			<!--[if !IE]>-->
-			<object type="application/x-shockwave-flash" data="games/match3dog/Match3.swf" width="100%" height="100%">
-				<param name="movie" value="games/match3dog/Match3.swf" />
-				<param name="quality" value="high" />
-				<param name="bgcolor" value="#FFFFFF" />
-				<param name="play" value="true" />
-				<param name="loop" value="true" />
-				<param name="wmode" value="default" />
-				<param name="scale" value="showall" />
-				<param name="menu" value="true" />
-				<param name="devicefont" value="false" />
-				<param name="salign" value="" />
-				<param name="allowScriptAccess" value="sameDomain" />
-				<param name="allowFullScreen" value="true" /> 
-			<!--<![endif]-->
-				<a href="http://www.adobe.com/go/getflash">
-					<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
-				</a>
-			<!--[if !IE]>-->
-			</object>
-			<!--<![endif]-->
-		</object>
-	</div>
-</body></html>
-"""
-
-randomRedditbot_html="""
-<!DOCTYPE html>
-<html >
-<head>
-<meta charset="UTF-8">
-
-
-<title>Random Redditbot</title>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-<link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" />
-<link href='https://fonts.googleapis.com/css?family=Anton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-</head>
-
-<body>
-
-<div id="results">here it comes...</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    var displayText = "<p>";
-    var randomSortList = ['hot', 'rising', 'controversial', 'top', 'new'];
-    var randomSubredditList = ['all', 'breakingmom', 'dadjokes', 'news', 'space', 'economy', 'business', 'onthescene', 'science', 'Advice', 'confessions', 'riddles', 'UFOs', 'myfriendwantstoknow', 'howto', 'dogs', 'conspiracy', 'oldpeoplefacebook', 'tifu', 'artificial', 'Seattle', 'tech', 'technews', 'democrats', 'republicans', 'inthenews', 'finance', 'gossip', 'singularity', 'AskTechnology', 'AMA', 'paranormal', 'mildlyinteresting', 'worldnews', 'nottheonion', 'shittyaskscience', 'explainlikeimfive', 'philosophy', 'askphilosophy', 'LearnUselessTalents', 'TechNewsToday', 'AmericanPolitics', 'Economics', 'mildlyinfuriating', 'creepyPMs', 'Whatisthis', 'Libertarian', 'MURICA', 'FutureWhatIf', 'wikipedia', 'sanders4president', 'the_donald', 'Hillary_Clinton', 'TedCruzForPresident', 'KasichForPresident', 'cringe', 'cringepics', 'niceguys'];
-    var usedList = [['[deleted]',0], [undefined,0], ['[removed]',0]];
-    var intervalID = window.setInterval(randomReddit, 4000);
-
-    function randomReddit() {
-        $.getJSON('https://www.reddit.com/r/' + randomSubredditList[Math.floor(Math.random() * randomSubredditList.length)] + '/' + randomSortList[Math.floor(Math.random() * randomSortList.length)] + '/.json?limit=1&t=hour', function(data) {
-        var link='https://www.reddit.com/r/all/comments/' + (data.data.children[0].data.id);
-        $.getJSON('https://www.reddit.com/r/all/comments/' + (data.data.children[0].data.id) + '.json?limit=1', function(data) {
-            var comment=data[1].data.children[0].data.body;
-            for (var i=0;i<usedList.length;i++) {
-            if (usedList[i].indexOf(comment) != -1) {
-            return;
-            }
-            }
-            usedList.push([comment,link]);
-            displayText="<p>";
-            for (var i=usedList.length-1;i>2;i--) {
-            displayText += '<a href="'+ usedList[i][1] + '" target="_blank">' + usedList[i][0] + "</a><p><hr><p>";
-            }
-            $("#results").html(displayText);
-            //window.scrollTo(0,document.body.scrollHeight)
-            });
-        });
-    };
-    randomReddit();
-});
-</script>
-
-</body>
-</html>
-"""
+index_html=open('index.html', 'r');
+match3Dog_html=open('match3Dog.html', 'r');
+randomRedditbot_html=open('randomRedditbot.html', 'r');
 
 #Main pages
 class MainHandler(webapp2.RequestHandler):
     def get(self):		
-        self.response.write(index_html)
+        self.response.write(index_html.read())
 
 #Animations
 
 class GoAroundAnim (webapp2.RequestHandler):
     def get(self):
-#        self.response.write(index_html)
         self.redirect("https://drive.google.com/file/d/0B-swctkKyxQMdGRua0pMQlpiNk0/preview")
 	
 class SmartDogAnim (webapp2.RequestHandler):
     def get(self):
-#        self.response.write(index_html)
         self.redirect("https://drive.google.com/file/d/0B-swctkKyxQMTnF5cXBoUHNVV28/preview")
 
 #Games
 
 class Match3DogGame (webapp2.RequestHandler):
     def get(self):
-        self.response.write(match3Dog_html)
-#        self.redirect("games/match3dog/Match3.swf")
+        self.response.write(match3Dog_html.read())
         
 class BabyDaddyGame (webapp2.RequestHandler):
     def get(self):
-#        self.response.write(index_html)
         self.redirect("https://drive.google.com/uc?export=download&id=0B-swctkKyxQMQXltN2hFb0JXMnc")
         
 #WebApps
 
 class RandomRedditbotApp (webapp2.RequestHandler):
     def get(self):
-        self.response.write(randomRedditbot_html)
+        self.response.write(randomRedditbot_html.read())
         
 class imageTest (webapp2.RequestHandler):
     def get(self):
