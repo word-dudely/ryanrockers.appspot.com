@@ -19,14 +19,17 @@ import webapp2
 #from google.appengine.api import images
 #from PIL import Image, ImageDraw, ImageFont
 
-index_html=open('index.html', 'r');
-match3Dog_html=open('match3Dog.html', 'r');
-randomRedditbot_html=open('randomRedditbot.html', 'r');
+with open('index.html', 'r') as index_html:
+    index_html_string=index_html.read()
+with open('match3Dog.html', 'r') as match3Dog_html:
+    match3Dog_html_string=match3Dog_html.read()
+with open('randomRedditbot.html', 'r') as randomRedditbot_html:
+    randomRedditbot_html_string=randomRedditbot_html.read()
 
 #Main pages
 class MainHandler(webapp2.RequestHandler):
     def get(self):		
-        self.response.write(index_html.read())
+        self.response.write(index_html_string)
 
 #Animations
 
@@ -42,7 +45,7 @@ class SmartDogAnim (webapp2.RequestHandler):
 
 class Match3DogGame (webapp2.RequestHandler):
     def get(self):
-        self.response.write(match3Dog_html.read())
+        self.response.write(match3Dog_html_string)
         
 class BabyDaddyGame (webapp2.RequestHandler):
     def get(self):
@@ -52,7 +55,7 @@ class BabyDaddyGame (webapp2.RequestHandler):
 
 class RandomRedditbotApp (webapp2.RequestHandler):
     def get(self):
-        self.response.write(randomRedditbot_html.read())
+        self.response.write(randomRedditbot_html_string)
         
 class imageTest (webapp2.RequestHandler):
     def get(self):
