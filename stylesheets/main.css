@@ -1,3 +1,16 @@
+.navbar {
+    background: rgba(0,0,0,.6);
+}
+.nav.navbar-nav li a {
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+.navbar-brand {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+}
 #top {
   padding-top: 10vh;
   background-color: red;
