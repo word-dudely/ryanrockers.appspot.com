@@ -1,27 +1,42 @@
 .navbar {
     background: rgba(0,0,0,.6);
 }
+
 .nav.navbar-nav li a {
     color: white;
     font-size: 2.25em;
     font-weight: bold;
     font-family: 'Courgette', cursive;
 }
+
 .navbar-brand {
     color: white;
     font-size: 2.5em;
     font-weight: bold;
 }
+
+.btm-anchored{
+    position:fixed;
+    bottom:0px;
+}
+
+.btm-bttn{
+    position:absolute;
+    bottom:0vh;
+}
+
 #top {
   padding-top: 10vh;
   background-color: red;
   padding-bottom: 10vh;
 }
+
 #logo{
   max-height: 100vh;
   height:100%;
   width:100%;
 }
+
 #portfolio {
   padding-top: 5vh;
   min-height: 100vh;
