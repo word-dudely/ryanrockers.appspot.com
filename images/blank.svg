@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="#000000" id="svg_1" height="400" width="400" y="0" x="0" stroke-width="0" fill="#ffffff"/>
+ </g>
+ <g display="none">
+  <title>Layer 2</title>
+  <text font-weight="bold" stroke="#000000" transform="matrix(26.422683461668793,0,0,22.249109247610992,-3153.8853092296845,-5090.7392195541925) " xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="24" id="svg_2" y="245.530162" x="127.013311" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">X</text>
+ </g>
+</svg>
