@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+
+
+<title>Big Fish catalog search</title>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" />
+<link href='https://fonts.googleapis.com/css?family=Anton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<div id="results">here it comes...</div>
+
+<script>
+$(document).ready(function() {
+    var displayText = "<p>";
+    function BFcatalogSearch() {
+        var query='?q='+'mystery'
+        $.getJSON('http://catalog.bigfishgames.com/search'+query, function(data) {
+            console.log(data.results);
+            var results=data.results;
+            console.log(results.length);
+            for(var i=0;i<results.length;i++){
+                console.log(results[i]);
+                displayText+=results[i].title+'<p>';
+            };
+            $("#results").html(displayText);
+        });
+    };
+    BFcatalogSearch();
+});
+</script>
+
+</body>
+</html>
