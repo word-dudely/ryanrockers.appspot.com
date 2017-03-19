@@ -6,31 +6,88 @@
 
 <title>Big Fish catalog search</title>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-<link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" />
+<!--link type="text/css" rel="stylesheet" href="/stylesheets/randomRedditbot.css" /-->
 <link href='https://fonts.googleapis.com/css?family=Anton&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<div id="results">here it comes...</div>
+<label for="langRadio">Language:</label>
+<div id="langRadio" class="radio">
+    <label><input type="radio" name="langRadioOption" value="1" checked>EN</label>
+    <label><input type="radio" name="langRadioOption" value="2">DE</label>
+    <label><input type="radio" name="langRadioOption" value="4">ES</label>
+    <label><input type="radio" name="langRadioOption" value="5">FR</label>
+    <label><input type="radio" name="langRadioOption" value="6">JP</label>
+    <label><input type="radio" name="langRadioOption" value="15">NL</label>
+    <label><input type="radio" name="langRadioOption" value="16">SE</label>
+    <label><input type="radio" name="langRadioOption" value="17">DN</label>
+    <label><input type="radio" name="langRadioOption" value="18">IT</label>
+    <label><input type="radio" name="langRadioOption" value="19">PT</label>
+</div>
+<label for="typeRadio">Platform:</label>
+<div id="typeRadio" class="radio">
+    <label><input type="radio" name="typeRadioOption" value="1" checked>PC</label>
+    <label><input type="radio" name="typeRadioOption" value="2">Mac</label>
+    <label><input type="radio" name="typeRadioOption" value="5">Online</label>
+    <label><input type="radio" name="typeRadioOption" value="7">iOS</label>
+    <label><input type="radio" name="typeRadioOption" value="9">Android</label>
+    <label><input type="radio" name="typeRadioOption" value="10">Windows Phone</label>
+</div>
+<div id="queryInputDiv" class="form-group">
+    <label for="queryInput">Title contains:</label>
+    <input type="text" class="form-control" id="queryInput">
+    <button id="searchBtn" type="button" class="btn btn-primary">Search</button>
+</div>
+<label id="resultsLabel" for="results"></label>
+<div id="results"></div>
 
 <script>
 $(document).ready(function() {
-    var displayText = "<p>";
-    function BFcatalogSearch() {
-        var query='?q='+'mystery'
-        $.getJSON('http://catalog.bigfishgames.com/search'+query, function(data) {
-            console.log(data.results);
+    var displayText = "";
+    //siteIds
+    var EN=1
+    var DE=2
+    var ES=4
+    var FR=5
+    var JP=6
+    var NL=15
+    var SE=16
+    var DN=17
+    var IT=18
+    var PT=19
+    //typeIds
+    var PC=1
+    var Mac=2
+    var Online=5
+    var iOS=7
+    var Android=9
+    var winPhone=10
+    
+    siteIdsList=[EN,DE,ES,FR,JP,NL,SE,DN,IT,PT]
+    typeIdsList=[PC,Mac,Online,iOS,Android,winPhone]
+    
+    function BFcatalogSearch(q,siteId,page,pageSize,typeId) {
+        displayText = "";
+        var q='?q='+q
+        var siteId='siteId='+ String(siteId)
+        var page='page='+ String(page)
+        var pageSize='pagesize='+ String(pageSize)
+        var typeId='typeid='+ String(typeId)
+        $.getJSON('http://catalog.bigfishgames.com/search'+q+'&'+siteId+'&'+page+'&'+pageSize+'&'+typeId, function(data) {
+            console.log(data)
             var results=data.results;
-            console.log(results.length);
             for(var i=0;i<results.length;i++){
-                console.log(results[i]);
-                displayText+=results[i].title+'<p>';
+                displayText+='<div id="result'+String(i)+'"><img src="http://cdn-games.bigfishsites.com/'+results[i].imagePath80x80+'">'+results[i].title+'</div>';
             };
+            $('#resultsLabel').html(data.totalMatches+' total results, showing first 100:')
             $("#results").html(displayText);
         });
     };
-    BFcatalogSearch();
+    
+    $("#searchBtn").on("click", function() {
+        BFcatalogSearch($('#queryInput').val(),$('input[name=langRadioOption]:checked').val(),0,100,$('input[name=typeRadioOption]:checked').val());
+    });
 });
 </script>
 
