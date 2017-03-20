@@ -64,6 +64,8 @@ $(document).ready(function() {
     var Android=9
     var winPhone=10
     
+    var numMatched=0;
+    
     siteIdsList=[EN,DE,ES,FR,JP,NL,SE,DN,IT,PT]
     typeIdsList=[PC,Mac,Online,iOS,Android,winPhone]
     
@@ -74,13 +76,41 @@ $(document).ready(function() {
         var page='page='+ String(page)
         var pageSize='pagesize='+ String(pageSize)
         var typeId='typeid='+ String(typeId)
+        var matched=false;
+        numMatched=0;
         $.getJSON('http://catalog.bigfishgames.com/search'+q+'&'+siteId+'&'+page+'&'+pageSize+'&'+typeId, function(data) {
             console.log(data)
             var results=data.results;
             for(var i=0;i<results.length;i++){
-                displayText+='<div id="result'+String(i)+'"><img src="http://cdn-games.bigfishsites.com/'+results[i].imagePath80x80+'">'+results[i].title+'</div>';
+                var splitName=results[i].imagePath80x80.split('/')
+                splitName=splitName[1]
+                splitName=splitName.split('-')
+                var splitQ=$('#queryInput').val().split(' ')
+                var qsMatched=[]
+                for (var i2=0;i2<splitQ.length;i2++){
+                    for(var i3=0;i3<splitName.length;i3++){
+                        splitQ[i2]=splitQ[i2].replace(':','');
+                        splitName[i3]=splitName[i3].replace('_80x80.jpg','');
+                        splitQ[i2]=splitQ[i2].toLowerCase();
+                        splitName[i3]=splitName[i3].toLowerCase();
+                        if (splitQ[i2]==splitName[i3]){
+                            matched=true;
+                        }
+                    }
+                    if (matched==true){
+                        qsMatched.push(true);
+                        matched=false;
+                    }
+                }
+                //console.log(splitName);
+                //console.log(splitQ);
+                //console.log(qsMatched)
+                if (qsMatched.length==splitQ.length){
+                    displayText+='<div id="result'+String(i)+'"><img src="http://cdn-games.bigfishsites.com/'+results[i].imagePath80x80+'">'+results[i].title+'</div>';
+                    numMatched++;
+                }
             };
-            $('#resultsLabel').html(data.totalMatches+' total results, showing first 100:')
+            $('#resultsLabel').html(numMatched+' total results, showing first 100:')
             $("#results").html(displayText);
         });
     };
