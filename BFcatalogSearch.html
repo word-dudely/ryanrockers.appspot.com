@@ -110,13 +110,13 @@ $(document).ready(function() {
                     numMatched++;
                 }
             };
-            $('#resultsLabel').html(numMatched+' total results, showing first 100:')
+            $('#resultsLabel').html(numMatched+' total results:')
             $("#results").html(displayText);
         });
     };
     
     $("#searchBtn").on("click", function() {
-        BFcatalogSearch($('#queryInput').val(),$('input[name=langRadioOption]:checked').val(),0,100,$('input[name=typeRadioOption]:checked').val());
+        BFcatalogSearch($('#queryInput').val(),$('input[name=langRadioOption]:checked').val(),0,10000,$('input[name=typeRadioOption]:checked').val());
     });
 });
 </script>
