@@ -21,6 +21,8 @@ import webapp2
 
 with open('index.html', 'r') as index_html:
     index_html_string=index_html.read()
+with open('CookingCrazeSushiPlayable.html', 'r') as CC_Playable_html:
+    CC_Playable_html_string=CC_Playable_html.read()
 with open('match3Dog.html', 'r') as match3Dog_html:
     match3Dog_html_string=match3Dog_html.read()
 with open('randomRedditbot.html', 'r') as randomRedditbot_html:
@@ -40,7 +42,28 @@ class GoAroundAnim (webapp2.RequestHandler):
 class SmartDogAnim (webapp2.RequestHandler):
     def get(self):
         self.redirect("https://drive.google.com/file/d/0B-swctkKyxQMTnF5cXBoUHNVV28/preview")
-
+class EM_CharSelectAnim (webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/bNC0WhVmpF4")
+class EM_GameOnDeviceAnim (webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/t07cZdBIwKU")
+class KnittensAnim(webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/QhaFDs4P0z4")
+class TSD_CinemagraphAnim(webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/vZzyOvVh-yQ")
+class TSD_CharactersAnim(webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/ybgwdxn9jyU")
+class LOTW_PreviewAnim(webapp2.RequestHandler):
+    def get(self):
+        self.redirect("https://www.youtube.com/embed/whpjwwkCHTc")      
+class CC_PlayableAnim(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(CC_Playable_html_string)  
+        
 #Games
 
 class Match3DogGame (webapp2.RequestHandler):
@@ -103,6 +126,13 @@ app = webapp2.WSGIApplication([
     ('/cursedHouse', MainHandler),
     ('/fictionFixersTheCurseOfOz', MainHandler),
     ('/lostInTheCityPostScriptum', MainHandler),
+    ('/EM_CharSelect', EM_CharSelectAnim),
+    ('/EM_GameOnDevice', EM_GameOnDeviceAnim),
+    ('/Knittens', KnittensAnim),
+    ('/TSD_Cinemagraph', TSD_CinemagraphAnim),
+    ('/TSD_Characters', TSD_CharactersAnim),
+    ('/LOTW_Preview', LOTW_PreviewAnim),
+    ('/CC_Playable', CC_PlayableAnim),
 #Games
     ('/match3Dog', Match3DogGame),
     ('/flyingFish', MainHandler),
