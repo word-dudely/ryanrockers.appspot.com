@@ -54,5 +54,5 @@ libraries:
 - name: webapp2
   version: latest
   
-- name: Pillow
+- name: PILLOW
   version: latest
