@@ -53,6 +53,3 @@ handlers:
 libraries:
 - name: webapp2
   version: latest
-  
-- name: PILLOW
-  version: latest
