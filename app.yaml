@@ -54,5 +54,5 @@ libraries:
 - name: webapp2
   version: latest
   
-- name: PIL
-  version: "5.1.0"
+- name: Pillow
+  version: latest
